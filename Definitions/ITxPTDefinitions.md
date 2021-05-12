@@ -1,9 +1,3 @@
-##  ## 
-    
-**Source:** Transmodel
-    
-**Defintion:** wait time can be superseded by a VEHICLE JOURNEY WAIT TIME.
-
 ## ABSENCE ## 
     
 **Source:** Transmodel
@@ -2246,7 +2240,7 @@
     
 **Source:** Transmodel
     
-**Defintion:** A REVENUE PROTECTION ENTRY recording the result of the comparison between one or several CONTROL ENTRies and the theoretical access rights attached to the TRAVEL DOCUMENT controlled, detecting insufficient rights to
+**Defintion:** A REVENUE PROTECTION ENTRY recording the result of the comparison between one or several CONTROL ENTRies and the theoretical access rights attached to the TRAVEL DOCUMENT controlled, detecting insufficient rights to consume and possibly giving rise to a FARE DEBIT or one or more OFFENCEs.
 
 ## INTERCHANGE ## 
     
@@ -2396,7 +2390,7 @@
     
 **Source:** Transmodel
     
-**Defintion:** The time a vehicle has to wait at a specific TIMING POINT IN JOURNEY PATTERN, for a specified TIME DEMAND TYPE. This
+**Defintion:** The time a vehicle has to wait at a specific TIMING POINT IN JOURNEY PATTERN, for a specified TIME DEMAND TYPE. This wait time can be superseded by a VEHICLE JOURNEY WAIT TIME.
 
 ## JOURNEY RUN TIME ## 
     
