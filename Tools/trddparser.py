@@ -11,6 +11,7 @@ import pdfplumber
 pdf = pdfplumber.open(trpdf)
 
 tm_dict = dict()
+tm_list = list()
 
 prev_key = "Cant start here"
 for p in range(63) :
@@ -40,24 +41,20 @@ for p in range(63) :
 
     table = page.extract_table(settings)
     for k, v in table:
-        defintion = v.replace('\n', '')
+        definition = v.replace('\n', '')
         if k == 'View':
             k = 'VIEW'
         key = k.replace('\n', '')
-#        print(f"{key}: {defintion}")
         if key == "":
-            tm_dict[prev_key] = tm_dict[prev_key] + ' ' + defintion
+            tm_dict[prev_key] = tm_dict[prev_key] + ' ' + definition
         else:
             if key in tm_dict:
-                print(f"Key {key} allready in dict!")
-            tm_dict[key] = defintion
+                print(f"Key {key} already in dict!")
+            tm_dict[key] = definition
+            tm_list.append({'concept': key, 'source': 'Transmodel', 'definition': definition})
             prev_key = key
-
-#for k, v in tm_dict.items():
-#    print(f"***{k}***")
-#    print(v)
 
 trdd_json = "transmodel6.json"
 
 with open(trdd_json, 'w') as outfile:
-    json.dump(tm_dict, outfile, indent=4)
+    json.dump({'source_file': trpdf, 'concepts': tm_list}, outfile, indent=4)
