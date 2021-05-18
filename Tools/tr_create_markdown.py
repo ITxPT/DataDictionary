@@ -9,12 +9,12 @@ with open(trdd_json) as trdd:
     tr_dict = json.load(trdd)
 
 str_list = []
-for k, v in tr_dict.items():
-    s = f"""## {k} ## 
+for d in tr_dict['concepts']:
+    s = f"""## {d['concept']} ## 
     
-**Source:** Transmodel
+**Source:** {d['source']}
     
-**Defintion:** {v}
+**Definition:** {d['definition']}
 
 """
 #    print(s)
