@@ -11,7 +11,7 @@ This is the ITxPT Data Dictionary Concepts with Concept Definitions, incorporati
 def order_concept_dict(cncpt):
     d = dict()
     # Make sure some know items are first in a specific order
-    for k in ['concept', 'source', 'definition']:
+    for k in ['name', 'source', 'definition']:
         d[k] = cncpt.pop(k, "")  # pop() removes the item
     # Then put the others in the order they had in source (from python 3.6 dicts are ordered)
     for k, v in cncpt.items():
@@ -26,22 +26,22 @@ def combine_input(input_files):
             top = json.load(f)
             concept_list = top['concepts']
             for e, cncpt in enumerate(concept_list):
-                if 'concept' not in cncpt:
+                if 'name' not in cncpt:
                     print(f"In {fn}, found concept-less item: {cncpt}")
-                    cncpt['concept'] = f"_-{fn}-No-Concept-{e}"
-                if cncpt['concept'] in concept_key_list:
-                    print(f"When processing {fn}, it seems Concept {cncpt['concept']} already present!")
-                concept_key_list.append(cncpt['concept'])
+                    cncpt['name'] = f"_-{fn}-No-Concept-{e}"
+                if cncpt['name'] in concept_key_list:
+                    print(f"When processing {fn}, it seems Concept {cncpt['name']} already present!")
+                concept_key_list.append(cncpt['name'])
                 merged_concept_list.append(order_concept_dict(cncpt))
-    merged_concept_list.sort(key=lambda x: x.get('concept'))
+    merged_concept_list.sort(key=lambda x: x.get('name'))
     return merged_concept_list
 
 def concept_list_to_markdown(concept_list, header):
     str_list = []
     for cncpt in concept_list:
-        s = f"## {cncpt['concept']} ##\n\n"
+        s = f"## {cncpt['name']} ##\n\n"
         for k, v in cncpt.items():
-            if k == 'concept':
+            if k == 'name':
                 continue
             s += f"**{k.capitalize()}:** {v}\n\n"
         str_list.append(s)
@@ -54,7 +54,7 @@ if __name__ == "__main__":
                         action="store_true")
     parser.add_argument("--input-files", help="JSON files with data", required=True, nargs="+")
     parser.add_argument("--output-file", help="Filename of Markdown save file", 
-                        default="ConceptDefinitions.md")
+                        default="Concepts.md")
     args = parser.parse_args()    
 
     concept_list = combine_input(args.input_files)

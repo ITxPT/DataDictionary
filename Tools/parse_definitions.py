@@ -25,7 +25,7 @@ def parse_markdown_file(sourcefile):
             # Found the first/next concept
             # Stored previous concept, create empty dict for next
             concept_dict = {}
-            concept_dict['concept'] = lines[i].strip("# \n")
+            concept_dict['name'] = lines[i].strip("# \n")
             concept_list.append(concept_dict)
             i += 1
             continue
@@ -59,9 +59,9 @@ def print_parsed(sourcefile):
     concept_list, error_list = parse_markdown_file(sourcefile)    
     for cncpt in concept_list:
         keys = cncpt.keys()
-        if 'concept' in keys:
-            keys.remove('concept')
-            print(f"## {cncpt['concept']} ##\n\n")
+        if 'name' in keys:
+            keys.remove('name')
+            print(f"## {cncpt['name']} ##\n\n")
         else:
             print(f"## NO CONCEPT! ##\n\n")
         for k in keys:

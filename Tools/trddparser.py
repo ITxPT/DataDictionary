@@ -57,10 +57,10 @@ for p in range(63) :
             if k in tm_dict:
                 print(f"Key {k} already in dict!")
             tm_dict[k] = definition
-            tm_list.append({'concept': k, 'source': 'Transmodel', 'definition': definition})
+            tm_list.append({'name': k, 'source': 'Transmodel', 'definition': definition})
             prev_key = k
 
-trdd_json = "Transmodel6_ConceptDefintions.json"
+trdd_json = "Transmodel6_Concepts.json"
 
 with open(trdd_json, 'w') as outfile:
     json.dump({'source_file': trpdf, 'concepts': tm_list}, outfile, indent=4)
