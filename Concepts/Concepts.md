@@ -3308,6 +3308,18 @@ This is the ITxPT Data Dictionary Concepts with Concept Definitions, incorporati
 
 **Definition:** A passenger action to check out at the end of a trip.
 
+## PASSENGER ENTRANCE ##
+
+**Source:** ITxPT
+
+**Definition:** A physical or virtual entrance or exit to/from a PASSENGER SPACE.
+
+## PASSENGER ENTRANCE COUNT ##
+
+**Source:** ITxPT
+
+**Definition:** Number of passengers and other objects that have crossed a specific PASSENGER ENTRANCE in both directions since some previous time/event. A possible implementation of LOGGABLE OBJECT.
+
 ## PASSENGER EQUIPMENT ##
 
 **Source:** Transmodel
@@ -3331,6 +3343,30 @@ This is the ITxPT Data Dictionary Concepts with Concept Definitions, incorporati
 **Source:** Transmodel
 
 **Definition:** Specialisation of PASSENGER EQUIPMENT for passenger safety.
+
+## PASSENGER SPACE ##
+
+**Source:** ITxPT
+
+**Definition:** A passenger area within a VEHICLE such as upper deck/lower deck, first class compartment or bounded open space within a VEHICLE. A PASSENGER SPACE can be part of, overlap with, and be made up of other PASSENGER SPACES.
+
+## PASSENGER SPACE CAPACITY ##
+
+**Source:** ITxPT
+
+**Definition:** The number of passengers and other objects that are present in a PASSENGER SPACE when it is at 100% capacity.
+
+## PASSENGER SPACE ENTRANCE COUNT ##
+
+**Source:** ITxPT
+
+**Definition:** Number of passengers and other objects that entered and exited a specific PASSENGER SPACE since some previous time/event. A possible implementation of LOGGABLE OBJECT.
+
+## PASSENGER SPACE OCCUPANCY COUNT ##
+
+**Source:** ITxPT
+
+**Definition:** Number of passengers and other objects that are in a PASSENGER SPACE at a given time. A possible implementation of LOGGABLE OBJECT.
 
 ## PASSENGER STOP ASSIGNMENT ##
 
