@@ -2,7 +2,7 @@ import os
 import sys
 import json
 
-# This script parses the Transmodel Data Defintions which can be found at 
+# This script parses the Transmodel Data Defintions PDF which can be found at 
 # http://www.transmodel-cen.eu/wp-content/uploads/sites/2/2015/01/TRM6_DataDefinitions.pdf
 # It has been tweaked to this particular document; andy changes my require adjustments.
 trpdf = "TRM6_DataDefinitions.pdf"
@@ -42,19 +42,26 @@ for p in range(63) :
     table = page.extract_table(settings)
     for k, v in table:
         definition = v.replace('\n', '')
-        if k == 'View':
-            k = 'VIEW'
-        key = k.replace('\n', '')
-        if key == "":
+        # If a defintion is missing in Transmodel, make a note of that
+        if definition == "":
+            definition = "_No definition in Transmodel source pdf_"
+        # Fix the cases where non-upper case looks really strange 
+        if k in ['View',]:
+            k = k.upper()
+        k = k.replace('\n', '')
+        # Fix a few cases where Term gets two spaces internally
+        k = k.replace('  ', ' ')
+        if k == "":
             tm_dict[prev_key] = tm_dict[prev_key] + ' ' + definition
         else:
-            if key in tm_dict:
-                print(f"Key {key} already in dict!")
-            tm_dict[key] = definition
-            tm_list.append({'concept': key, 'source': 'Transmodel', 'definition': definition})
-            prev_key = key
+            if k in tm_dict:
+                print(f"Key {k} already in dict!")
+            tm_dict[k] = definition
+            tm_list.append({'name': k, 'source': 'Transmodel', 'definition': definition})
+            prev_key = k
 
-trdd_json = "transmodel6.json"
+trdd_json = "Transmodel6_Concepts.json"
 
 with open(trdd_json, 'w') as outfile:
     json.dump({'source_file': trpdf, 'concepts': tm_list}, outfile, indent=4)
+print(f"Processing {trpdf} wrote {len(tm_list)} concepts to {trdd_json}")
