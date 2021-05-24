@@ -17,7 +17,6 @@ def parse_markdown_file(sourcefile):
     while i < len(lines):
         if not first_concept_found and not lines[i].startswith("##"):
             # skip all text about the first concept
-            print(f"Skip line {i}")
             i += 1
             continue
         first_concept_found = True
