@@ -14,9 +14,9 @@ It contains the ITxPT Data Dictionary Terms and Definitions, Instructions and Gu
 
 See the [DataDictionary Wiki](../../wiki) for how to use the Data Dictionary, instructions for how to add items to the Data Dictionary and Guidelines for defining Terms & Definitions and modeling data. 
 
-## Terms & Definitions ##
+## Concepts ##
 
-In folder [Definitions](./Definitions)
+[ITxPT Concepts](./Concepts/Concepts.md) Includes Transmodel Concepts.
 
 ## Modeling Guideline ##
 
