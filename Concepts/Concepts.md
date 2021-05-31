@@ -1478,6 +1478,13 @@ This is the ITxPT Data Dictionary Concepts with Concept Definitions, incorporati
 
 **Definition:** An item of equipment installed either fixed (PLACE EQUIPMENT) or on-board vehicles (VEHICLE EQUIPMENT). A service (LOCAL SERVICE such as LEFT LUGGAGE, TICKETING SERVICE) is considered as immaterial equipment as well.
 
+
+## ENTRANCE FOR PASSENGER SPACE ## 
+
+**Source:** ITxPT
+
+**Definition:** A PASSENGER ENTRANCE used as an entry- and/or exit- point to or from a certain PASSENGER SPACE along with information if the designated exit and entry directions of the PASSENGER ENTRANCE are aligned or reversed in relation to the PASSENGER SPACE.
+
 ## EQUIPMENT PLACE ##
 
 **Source:** Transmodel
@@ -3312,13 +3319,13 @@ This is the ITxPT Data Dictionary Concepts with Concept Definitions, incorporati
 
 **Source:** ITxPT
 
-**Definition:** A physical or virtual entrance or exit to/from a PASSENGER SPACE.
+**Definition:** A physical or virtual boundary point through which passengers can enter or exit, e.g. a vehicle door. A PASSENGER ENTRANCE has a designated enter-direction and a designated exit-direction.
 
 ## PASSENGER ENTRANCE COUNT ##
 
 **Source:** ITxPT
 
-**Definition:** Number of passengers and other objects that have crossed a specific PASSENGER ENTRANCE in both directions since some previous time/event. A possible implementation of LOGGABLE OBJECT.
+**Definition:**  Number of passengers and other objects that have entered and exited through a specific PASSENGER ENTRANCE during a time span or since some implicit or explicit previous time/event. A possible implementation of LOGGABLE OBJECT.
 
 ## PASSENGER EQUIPMENT ##
 
@@ -3348,7 +3355,7 @@ This is the ITxPT Data Dictionary Concepts with Concept Definitions, incorporati
 
 **Source:** ITxPT
 
-**Definition:** A passenger area within a VEHICLE such as upper deck/lower deck, first class compartment or bounded open space within a VEHICLE. A PASSENGER SPACE can be part of, overlap with, and be made up of other PASSENGER SPACES.
+**Definition:** A passenger area within a VEHICLE. It may be limited to only a part of a VEHICLE such as a TRAIN ELEMENT, upper deck/lower deck, first class compartment or a bounded open space. A PASSENGER SPACE can be part of, overlap with, and be made up of other PASSENGER SPACEs.
 
 ## PASSENGER SPACE CAPACITY ##
 
@@ -3360,7 +3367,7 @@ This is the ITxPT Data Dictionary Concepts with Concept Definitions, incorporati
 
 **Source:** ITxPT
 
-**Definition:** Number of passengers and other objects that entered and exited a specific PASSENGER SPACE since some previous time/event. A possible implementation of LOGGABLE OBJECT.
+**Definition:** Number of passengers and other objects that entered and exited a specific PASSENGER SPACE during a time span or since some implicit or explicit previous time/event. A possible implementation of LOGGABLE OBJECT. It is in essence an aggregation of relevant PASSENGER ENTRANCE COUNTs according to ENTRANCE FOR PASSENGER SPACE information.
 
 ## PASSENGER SPACE OCCUPANCY COUNT ##
 
