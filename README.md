@@ -40,6 +40,10 @@ Several things relating to ITxPT usage of MQTT is related to Data Dictionary Res
 
 MQTT Function group names and Providers Names are approved by Data Dictionary Work Group and documented at [MQTT Names](./MQTT/MQTTNames.md)
 
+### MQTT Provider Topic structure ###
+
+It is possible that Data Dictionary group will take over responsibility for the rules/guideline on how each provider should be organized internally. However, this is for now not decided. The current guidelines, as they are, are part of TR-003 MQTT.
+
 ### MQTT User Properties ###
 
 MQTT v5 adds User Properties (aka metadata) that can be added to the header of messages and provide additional information to the payload itself. Data Centric requires the payload to enough information on its own; but User Properties can be very useful for adding data during system integration, analysis of message losses, timing analysis, and other things not directly related the function of the payload. ITxPT standardized User Properties will often relate to Standard Types. 
