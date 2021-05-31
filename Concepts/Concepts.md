@@ -1478,7 +1478,6 @@ This is the ITxPT Data Dictionary Concepts with Concept Definitions, incorporati
 
 **Definition:** An item of equipment installed either fixed (PLACE EQUIPMENT) or on-board vehicles (VEHICLE EQUIPMENT). A service (LOCAL SERVICE such as LEFT LUGGAGE, TICKETING SERVICE) is considered as immaterial equipment as well.
 
-
 ## ENTRANCE FOR PASSENGER SPACE ## 
 
 **Source:** ITxPT
