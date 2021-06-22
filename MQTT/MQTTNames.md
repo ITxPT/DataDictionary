@@ -41,9 +41,8 @@ Note: This should probably apply to *all* topics, also those "inside" a Provider
 
 # Style of Names #
 
-Function Group Names, Provider Names, and other topic elements are by convention lower case without any punctuation. E.g. `somefunction` and `fancything` are used not `someFunction` / `fancyThing`, `some-function` / `fancy-thing`, `some_function` / `fancy_thing`, `SOMEFUNCTION` / `FANCYTHING`, etc
+Function Group Names, Provider Names, and other topic elements are by convention lower case. Underscore may be used where it aids readability E.g. `somefunction` / `some_function` and `fancythingmanager` / `fancything_manager` are used, not `someFunction` / `fancyThingManager`, `some-function` / `fancy-thing-manager`, `SOMEFUNCTION` / `FANCYTHINGMANAGER`, etc. Spaces shall NOT be used. 
 
-This is a convention, not a _rule_, and should not be relied on. 
 
 # Function Group Names and Provider Names #
 

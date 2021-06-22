@@ -36,9 +36,9 @@ Location for this is [ITxPT Standard Types](./StandardTypes.md).
 
 While not developed by Data Dictionary Committee, the Data Dictionary Committee is guardian of ITxPT Format Styles Guides, and will do minor changes to keep the Format Styles Guides in line with other Data Dictionary Artifacts, e.g. Standard Types. 
 
-### Format Style Guide JSON (TR-004)
+### Format Rules JSON (TR-004)
 
-[JSON Style Guide](./FormatStyleGuides/TR-004-JSON.md.md)
+[TR-004 JSON Format Rules](./FormatRules/TR-004-JSON.md)
 
 ## MQTT ##
 

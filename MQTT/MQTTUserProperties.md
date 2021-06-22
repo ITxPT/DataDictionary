@@ -18,9 +18,3 @@ Each Technical Specification may modify the list of Mandatory Properties.
 **Name:** timestamp
 
 **Value:** Timestamp according to TR-001, preferably with ms.
-
-## Sequence Number ##
-
-**Name:** MQTTPublishSeqNbr
-
-**Value:** MQTT specific Sequence Number that increments with 1 for each Publish on that specific topic. Starts at 1. Max value 4 294 967 295 (2^32). Value 0 (zero) means wrap-around. 
