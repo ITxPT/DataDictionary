@@ -28,9 +28,17 @@ In addition to the Data Dictionary itself the Data Dictionary Working Group is r
 
 ## Standard Types ##
 
-For some commonly used types, e.g. timestamps or sequence-numbers, it is a clear benefit for ITxPT if these types are 'reserved' on the top level, rather than being different in each specification. This applies to both recommended name of a property with such content, and the content itself. 
+For some commonly used types it is a clear benefit for ITxPT if these types are 'reserved' on the top level, rather than being different in each specification. This applies to both recommended name of a property with such content, and the content itself. 
 
-Location for this is TDB.
+Location for this is [ITxPT Standard Types](./StandardTypes.md).
+
+## Format Style Guides ##
+
+While not developed by Data Dictionary Committee, the Data Dictionary Committee is guardian of ITxPT Format Styles Guides, and will do minor changes to keep the Format Styles Guides in line with other Data Dictionary Artifacts, e.g. Standard Types. 
+
+### Format Style Guide JSON (TR-004)
+
+[JSON Style Guide](./FormatStyleGuides/TR-004-JSON.md.md)
 
 ## MQTT ##
 
