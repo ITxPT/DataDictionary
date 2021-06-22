@@ -21,6 +21,6 @@ Each Technical Specification may modify the list of Mandatory Properties.
 
 ## Sequence Number ##
 
-**Name:** seqNbr
+**Name:** MQTTPublishSeqNbr
 
-**Value:** Sequence Number that should increment with 1 for each Publish on that specific topic. 
+**Value:** MQTT specific Sequence Number that increments with 1 for each Publish on that specific topic. Starts at 1. Max value 4 294 967 295 (2^32). Value 0 (zero) means wrap-around. 

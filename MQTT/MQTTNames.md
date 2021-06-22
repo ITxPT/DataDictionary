@@ -4,21 +4,26 @@ All ITxPT MQTT Providers will have an onboard topic starting with `[itxpt-root]/
 
 # Format # 
 
-This document will use this format to list Function Group Names and Provider Names: 
+This document will below use the following format to list Function Group Names and Provider Names: 
 
-## function group name ## 
+**For Function Group Names:**
+
+## a-function-group-name ## 
 
 **Status:** Proposal (One of Proposal/Draft/Approve?)
 
 **Description:** A description of what the Function Group contains and the rules for being added to it.
 
-### Provider Name ###
+**For Function Group Names:**
 
-Note: Providers in the function group.
+_Note: Provider Names are a sub-header of the function group it belongs to._
+
+### a-provider-name ###
 
 **Status:** Proposal (One of Proposal/Draft/Approve?)
 
 **Description:** Short description of Provider. This does not need to be detailed - the technical specification can be consulted for details.
+
 
 # Non ITxPT Providers # 
 
