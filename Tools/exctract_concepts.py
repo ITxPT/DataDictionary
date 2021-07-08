@@ -1,7 +1,7 @@
 import argparse
 import json
 import parse_definitions as md_parser
-import create_markdown 
+import create_markdown
 
 
 def filter(concepts_to_filter_for, concept_list):
@@ -12,22 +12,30 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--input-file", help="Markdown file to parse",
                         default="../Concepts/Concepts.md")
-    parser.add_argument("--output-file", help="Filename of where to save save file", 
+    parser.add_argument("--output-file", help="Filename of where to save save file",
                         default=None)
-    parser.add_argument("--filter", help="Concept Names to filter for", required=True, nargs="+")                        
-    
+    parser.add_argument("--filter", help='Concept Names to filter for. Can include one or more .json files on format {"usedConcepts": [<concept>,...]}" ', required=True, nargs="+")
     parser.add_argument("--format", help="""'MDcond' - Markdown, condensed
                                             'MD' - as Concept.md
                                             'TXTcond - plain text, condensed""",
-                        default="MDcond")                        
-    args = parser.parse_args()    
+                        default="MDcond")
+    args = parser.parse_args()
+
+    concepts_filter_set = set()
+    for c in args.filter:
+        if c.endswith(".json"):
+            with open(c) as f:
+                d = json.load(f)
+                concepts_filter_set.update(d["usedConcepts"])
+        else:
+            concepts_filter_set.add(c)
 
     if args.input_file.endswith(".md"):
         concept_list, error_list = md_parser.parse_markdown_file(args.input_file)
     elif args.input_file.endswith(".json"):
         concept_list = create_markdown.combine_input([args.input_file,])
 
-    filtered_list = filter(args.filter, concept_list)
+    filtered_list = filter(concepts_filter_set, concept_list)
 
     if args.format == 'MDcond':
         output = "\n\n".join([f"**{c['name']}** - {c['definition']}" for c in filtered_list])
@@ -40,3 +48,5 @@ if __name__ == "__main__":
             of.write(output)
     else:
         print(output)
+
+print(f"len(filters)={len(concepts_filter_set)}; len(extracted-concepts)={len(filtered_list)}. Should normally match!")
