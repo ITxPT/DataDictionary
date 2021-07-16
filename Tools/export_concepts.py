@@ -18,6 +18,13 @@ import create_markdown
 
 def filter(concepts_to_filter_for, concept_list):
     new_list = [x for x in concept_list if x['name'] in concepts_to_filter_for]
+    # Add "UNKNOWN" for concepts that where not found
+    found = {x['name'] for x in new_list}
+    print(found)
+    not_found = set(concepts_to_filter_for) - found
+    print(not_found)
+    for nf in not_found:
+        new_list.append({'name': nf, 'source': 'Not found in source', 'definition': 'Not found in source'})    
     return new_list
 
 if __name__ == "__main__":

@@ -3374,7 +3374,7 @@ This is the ITxPT Data Dictionary Concepts with Concept Definitions, incorporati
 
 **Definition:** Number of passengers and other objects that are in a PASSENGER SPACE at a given time. A possible implementation of LOGGABLE OBJECT.
 
-## PASSENGER SPACE OCCUPANCY COUNT ##
+## PASSENGER SPACE OCCUPANCY RATIO ##
 
 **Source:** ITxPT
 
