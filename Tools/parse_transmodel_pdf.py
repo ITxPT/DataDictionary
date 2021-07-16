@@ -1,14 +1,26 @@
+#!/usr/bin/env python
+"""
+Parses the Transmodel Data Defintions PDF and output as JSON-file.
+
+The Transmodel Data Dictionary pdf can be found at:
+http://www.transmodel-cen.eu/wp-content/uploads/sites/2/2015/01/TRM6_DataDefinitions.pdf
+
+This script has been tweaked to this particular document; any changes/updates of the pdf may 
+require adjustments of the "parsing parameters" used.
+
+The output is a json file with all concepts. The json file is input to other scripts/tools.
+"""
+
 import os
 import sys
 import json
 
-# This script parses the Transmodel Data Defintions PDF which can be found at 
-# http://www.transmodel-cen.eu/wp-content/uploads/sites/2/2015/01/TRM6_DataDefinitions.pdf
-# It has been tweaked to this particular document; andy changes my require adjustments.
-trpdf = "TRM6_DataDefinitions.pdf"
+import pdfplumber  # pip install pdfplumber
 
-import pdfplumber
-pdf = pdfplumber.open(trpdf)
+tr_pdf = "TRM6_DataDefinitions.pdf"
+tr_json = "Transmodel6_Concepts.json"
+
+pdf = pdfplumber.open(tr_pdf)
 
 tm_dict = dict()
 tm_list = list()
@@ -18,7 +30,6 @@ for p in range(63) :
     page = pdf.pages[p]
     if p == 0:
         page = page.within_bbox((0, 260, 590, 840))
-    
 
     settings = {
         "vertical_strategy": "lines", 
@@ -60,8 +71,6 @@ for p in range(63) :
             tm_list.append({'name': k, 'source': 'Transmodel', 'definition': definition})
             prev_key = k
 
-trdd_json = "Transmodel6_Concepts.json"
-
-with open(trdd_json, 'w') as outfile:
-    json.dump({'source_file': trpdf, 'concepts': tm_list}, outfile, indent=4)
-print(f"Processing {trpdf} wrote {len(tm_list)} concepts to {trdd_json}")
+with open(tr_json, 'w') as outfile:
+    json.dump({'source_file': tr_pdf, 'concepts': tm_list}, outfile, indent=4)
+print(f"Processing {tr_pdf} wrote {len(tm_list)} concepts to {tr_json}")

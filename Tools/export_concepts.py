@@ -1,8 +1,20 @@
+#!/usr/bin/env python
+
+""" Based on Concepts Markdown or JSON, outputs all or a selection of Concepts in different formats. 
+
+See --help for usage/options. 
+
+Adding new formats should be easy.  
+
+Note that it can currently only be used on the command line, but 
+changing it to a script that can be called from other scripts should be easy.
+"""
+
 import argparse
 import json
-import parse_definitions as md_parser
-import create_markdown
 
+import parse_itxpt_concept_md as md_parser
+import create_markdown
 
 def filter(concepts_to_filter_for, concept_list):
     new_list = [x for x in concept_list if x['name'] in concepts_to_filter_for]
@@ -10,7 +22,7 @@ def filter(concepts_to_filter_for, concept_list):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input-file", help="Markdown file to parse",
+    parser.add_argument("--input-file", help="Markdown file to parse, or json file to read",
                         default="../Concepts/Concepts.md")
     parser.add_argument("--output-file", help="Filename of where to save save file",
                         default=None)
