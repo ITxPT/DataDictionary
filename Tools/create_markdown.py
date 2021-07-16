@@ -1,8 +1,14 @@
+#!/usr/bin/env python
+
+""" 
+Based on the Concepts JSON file(s), creates Markdown output. 
+"""
+
 import os
 import json
 import argparse
 
-header = """# ITxPT Data Dictionary Concepts #
+itxpt_dd_md_header = """# ITxPT Data Dictionary Concepts #
 
 This is the ITxPT Data Dictionary Concepts with Concept Definitions, incorporating the Transmodel Definitions. ...
 
@@ -48,6 +54,18 @@ def concept_list_to_markdown(concept_list, header):
     #previously str_list was sorted here, but should already be in order now!(?)
     return header + "".join(str_list)
 
+def create_markdown(input_files, output_file, header, print_only=False):
+    concept_list = combine_input(input_files)
+    md = concept_list_to_markdown(concept_list, header)
+
+    if print_only:
+        print(md)
+    else:
+        with open(output_file, 'w') as f:
+            f.write(md)
+            print(f"Wrote markdown to {output_file}")
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--print", help="print of markdown only",
@@ -55,15 +73,7 @@ if __name__ == "__main__":
     parser.add_argument("--input-files", help="JSON files with data", required=True, nargs="+")
     parser.add_argument("--output-file", help="Filename of Markdown save file", 
                         default="Concepts.md")
-    args = parser.parse_args()    
+    args = parser.parse_args()  
 
-    concept_list = combine_input(args.input_files)
-    md = concept_list_to_markdown(concept_list, header)
-
-    if args.print:
-        print(md)
-    else:
-        with open(args.output_file, 'w') as f:
-            f.write(md)
-            print(f"Wrote markdown to {args.output_file}")
+    create_markdown(args.input_files, args.output_file, itxpt_dd_md_header, print_only=args.print)  
 

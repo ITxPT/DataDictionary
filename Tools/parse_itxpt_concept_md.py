@@ -1,3 +1,11 @@
+#!/usr/bin/env python
+
+""" Creates JSON Concepts file(s) based on ITxPT Concepts Markdown.
+
+Together with create_markdown.py this can be used to go MD -> JSON (-> processing) -> MD.
+All **bold:** sections are preserved. 
+"""
+
 import json
 import argparse
 from collections import defaultdict
