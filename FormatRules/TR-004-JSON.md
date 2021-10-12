@@ -288,15 +288,15 @@ Specification.
 ## 3.11. Versioning
 
 The property apiVersion is a reserved name and is used to indicate what
-version of an API/TS data model a JSON object belongs to.
+version of an API/TS data model a JSON object belongs to. A TS is not
+*required* to mandate the use of the apiVersion as a property for all JSON
+objects, but in general it is highly recommended.
 
-A TS is not *required* to have apiVersion as property for all objects,
-but in general not having versioned data is a decision that seems good
-initially, until the time a larger change is needed/preferable, after
-which it may be deeply problematic.
+It is *required* that, where mandated, the apiVersion property must carry
+the same version stamp as the TS itself.
 
-Versioning of JSON objects (and of data model in general) will be
-covered by the Data Dictionary group.
+Where other implementation-specific versioning schemes are used, those
+versions must not make use of this property name.
 
 ## 3.12. Usage of null
 
